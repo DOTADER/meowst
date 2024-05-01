@@ -19,4 +19,7 @@ public class dialogue {
             throw new RuntimeException(e);
         }
     }
+    public static void clearScreen() {
+        System.out.print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+    }
 }

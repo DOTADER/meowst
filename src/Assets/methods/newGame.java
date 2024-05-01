@@ -41,7 +41,7 @@ public class newGame {
         timer(3);
         narrate("1. [S] will save your game. You can change the saves folder whenever you use [S].");
         timer(3);
-        narrate("2. [C$] is the shop. This is where you spend your hard-earned Caps to gain mana, max health, attack power, or fully heal.");
+        narrate("2. [C$] is the shop. This is where you spend your hard-earned Caps to gain mana, max health, attack power, etc.");
         timer(3);
         narrate("3. [>] takes you where the fun is! This is your main way to get into Meowst Matches and earn those sweet sweet caps!");
         timer(10);
@@ -50,9 +50,11 @@ public class newGame {
     public static void entireIntro() {
         while(true) {
             // Intro
+            clearScreen();
             narrate("Welcome to Meowst!");
             narrate("Would you like to load a save? [y/n]");
             String loadSave = scanner.next();
+            clearScreen();
             if(loadSave.equals("y")) {
                 loadPrompt();
                 if(loadConfirm) {
@@ -63,9 +65,15 @@ public class newGame {
 
             } else if(loadSave.equals("n"))  {
 
+                clearScreen();
+
                 playerOnboard();
 
+                clearScreen();
+
                 fullCombatLoop();
+
+                clearScreen();
 
                 postTutorialDialogue();
 

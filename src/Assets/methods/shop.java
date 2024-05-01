@@ -7,34 +7,66 @@ public class shop {
     public static void openShop() {
         print("[Shopkeeper] Hello! Welcome to my shop!");
         while(true) {
+            String[] shopItems = new String[9];
+            shopItems[0] = "Full Mana                           ";
+            shopItems[1] = "+ 16 Max Mana                       ";
+            shopItems[2] = "Full Heal                           ";
+            shopItems[3] = "+ 16 Max Health                     ";
+            shopItems[4] = "Full Health & Mana                  ";
+            shopItems[5] = "Monkey Fist (+4 attack power)       ";
+            shopItems[6] = "Brass Knuckles (+8 attack power)    ";
+            shopItems[7] = "Gold Staff (+16 attack power)       ";
+            shopItems[8] = "Mace (+ 32 attack power)            ";
+
+            int[] shopItemCost = new int[9];
+            shopItemCost[0] = 10;
+            shopItemCost[1] = 128;
+            shopItemCost[2] = 10;
+            shopItemCost[3] = 256;
+            shopItemCost[4] = 16;
+            shopItemCost[5] = 32;
+            shopItemCost[6] = 64;
+            shopItemCost[7] = 128;
+            shopItemCost[8] = 256;
+
             print("[Shopkeeper] What can I get for you?");
-            print("Shop Items:");
-            print("1. Full Mana - C$10");
-            print("2. + 16 Max Mana - C$150");
-            print("3. Full Heal - C$10");
-            print("4. + 16 Max Health - C$250");
-            print("5. Full Health & Mana - C$16");
-            print("9. Exit Shop");
+            for(int i = 0; i < 9; i++) {
+                print("Shop Item #" + i + ": " + "(C$" + shopItemCost[i] + ") " + shopItems[i]);
+            }
+            print("[x] Exit Shop");
             print("(You Have C$" + playerCaps + ")");
             String shopOption = scanner.next();
-            if(shopOption.equals("1")) {
-                buyFullMana();
+            if(shopOption.equals("0")) {
+                purchase(shopItemCost[0]);
+                giveFullMana();
+            }
+            else if(shopOption.equals("1")) {
+                purchase(shopItemCost[1]);
+                giveMaxMana();
             }
             else if(shopOption.equals("2")) {
-                buyMaxMana();
+                purchase(shopItemCost[2]);
+                giveFullHeal();
             }
             else if(shopOption.equals("3")) {
-                buyFullHeal();
+                purchase(shopItemCost[3]);
+                giveMaxHealth();
             }
             else if(shopOption.equals("4")) {
-                buyMaxHealth();
-            }
-            else if(shopOption.equals("5")) {
-                buyFullHeal();
-                buyFullMana();
+                purchase(shopItemCost[4]);
+                giveFullHeal();
+                giveFullMana();
                 discount(4);
             }
-            else if(shopOption.equals("9") || shopOption.equals("x")) {
+            else if(shopOption.equals("5")) {
+                if(hasMonkeyFist > 0) {
+                    purchase(shopItemCost[5]);
+                    giveMonkeyFist();
+                } else {
+                    print("Sorry, you already have that!");
+                }
+            }
+            else if(shopOption.equals("x")) {
                 print("[Shopkeeper] See you around!");
                 break;
             }
@@ -43,40 +75,31 @@ public class shop {
             }
         }
     }
-    public static void buyFullMana() {
-        if(playerCaps >= 10) {
-            playerCaps -= 10;
-            playerMana = playerMaxMana;
-            print("[Shopkeeper] Full Mana, Here you go!");
+    public static void giveFullMana() {
+        playerMana = playerMaxMana;
+    }
+    public static void giveMaxMana() {
+        playerMaxMana += 16;
+        playerMana = playerMaxMana;
+    }
+    public static void giveFullHeal() {
+        playerHealth = playerMaxHealth;
+    }
+    public static void giveMaxHealth() {
+        playerMaxHealth += 16;
+        playerHealth = playerMaxHealth;
+    }
+    public static void giveMonkeyFist() {
+        if(hasMonkeyFist > 0) {
+            playerAttack += 4;
+            boolean hasMonkeyFist = true;
         } else {
-            print("Not enough C$!");
+            print("Sorry, you already have that!");
         }
     }
-    public static void buyMaxMana() {
-        if(playerCaps >= 150) {
-            playerCaps -= 150;
-            playerMaxMana += 16;
-            playerMana = playerMaxMana;
-            print("[Shopkeeper] Max Mana, Here you go!");
-        } else {
-            print("Not enough C$!");
-        }
-    }
-    public static void buyFullHeal() {
-        if(playerCaps >= 10) {
-            playerCaps -= 10;
-            playerHealth = playerMaxHealth;
-            print("[Shopkeeper] Full Heal, Here you go!");
-        } else {
-            print("Not enough C$!");
-        }
-    }
-    public static void buyMaxHealth() {
-        if(playerCaps >= 250) {
-            playerCaps -= 250;
-            playerMaxHealth += 16;
-            playerHealth = playerMaxHealth;
-            print("[Shopkeeper] Max Health, Here you go!");
+    public static void purchase(int cost) {
+        if(playerCaps >= cost) {
+            playerCaps -= cost;
         } else {
             print("Not enough C$!");
         }

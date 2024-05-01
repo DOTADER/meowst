@@ -8,6 +8,7 @@ import static Assets.vars.*;
 
 public class lobby {
     public static void lobbyOptions() {
+        clearScreen();
         print("What will you do?");
         option("1. [S] Save your game (if you don't do this, your progress cannot be recovered!)");
         option("2. [C$] Shop");
@@ -25,6 +26,7 @@ public class lobby {
             /* ----- Save Your Game ----- */
 
             if(lobbyOption.equals("1") || lobbyOption.equals("s") || lobbyOption.equals("S")) {
+                clearScreen();
                 saveGame();
             }
 
@@ -32,6 +34,7 @@ public class lobby {
             /* ---- Open Shop Prompts ---- */
 
             else if(lobbyOption.equals("2") || lobbyOption.equals("C") || lobbyOption.equals("$") || lobbyOption.equals("C$")) {
+                clearScreen();
                 openShop();
             }
 
@@ -39,6 +42,7 @@ public class lobby {
             /* ------- Adventure -------- */
 
             else if(lobbyOption.equals("3") || lobbyOption.equals(">")) {
+                clearScreen();
                 if(findMaxMana >= 7) {
                     print("You found a Max Mana!");
                     playerMaxMana += 4;
@@ -55,6 +59,7 @@ public class lobby {
             /* ------- Exit Game -------- */
 
             else if(lobbyOption.equals("4") || lobbyOption.equals("x") || lobbyOption.equals("X")) {
+                clearScreen();
                 break;
             }
         }

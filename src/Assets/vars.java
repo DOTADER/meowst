@@ -26,6 +26,11 @@ public class vars {
     public static int enemyMana = (int) ((Math.random() * ((playerMaxMana + 8) - (playerMaxMana))) + (playerMaxMana));
     public static int enemyWillAttack = (int) ((Math.random() * (10 - 1)) + 1);
 
+    public static int hasMonkeyFist = 0;
+    public static int hasBrassKnuckles = 0;
+    public static int hasGoldStaff = 0;
+    public static int hasMace = 0;
+
     /*--- System ---*/
     public static Scanner scanner = new Scanner(System.in);
     public static int findMaxMana = (int) ((Math.random() * (10 - 1)) + 1);

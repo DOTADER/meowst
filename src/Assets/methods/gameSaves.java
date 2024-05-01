@@ -2,9 +2,8 @@ package Assets.methods;
 
 import java.io.*;
 
-import static Assets.methods.dialogue.print;
+import static Assets.methods.dialogue.*;
 import static Assets.vars.*;
-import static Assets.vars.playerData;
 
 public class gameSaves {
     public static void loadSave() {
@@ -19,6 +18,10 @@ public class gameSaves {
             playerAttack = Integer.parseInt(saveReader.readLine());
             playerCaps = Integer.parseInt(saveReader.readLine());
             matchNum = Integer.parseInt(saveReader.readLine());
+            hasMonkeyFist = Integer.parseInt(saveReader.readLine());
+            hasBrassKnuckles = Integer.parseInt(saveReader.readLine());
+            hasGoldStaff = Integer.parseInt(saveReader.readLine());
+            hasMace = Integer.parseInt(saveReader.readLine());
 
             print("Your save path: " + playerData.getAbsolutePath());
             print("File size: " + playerData.length() + " bytes");
@@ -58,11 +61,16 @@ public class gameSaves {
                             playerMaxMana + "\n" +
                             playerAttack + "\n" +
                             playerCaps + "\n" +
-                            matchNum + "\n"
+                            matchNum + "\n" +
+                            hasMonkeyFist + "\n" +
+                            hasBrassKnuckles + "\n" +
+                            hasGoldStaff + "\n" +
+                            hasMace
             );
             print("Your save path: " + playerData.getAbsolutePath());
             print("File size: " + playerData.length() + " bytes");
             print("Game saved!");
+            timer(5);
             playerSave.close();
         } catch (IOException e) {
             print("Uh oh! An error ocurred.");
