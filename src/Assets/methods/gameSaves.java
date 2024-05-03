@@ -18,10 +18,6 @@ public class gameSaves {
             playerAttack = Integer.parseInt(saveReader.readLine());
             playerCaps = Integer.parseInt(saveReader.readLine());
             matchNum = Integer.parseInt(saveReader.readLine());
-            hasMonkeyFist = Integer.parseInt(saveReader.readLine());
-            hasBrassKnuckles = Integer.parseInt(saveReader.readLine());
-            hasGoldStaff = Integer.parseInt(saveReader.readLine());
-            hasMace = Integer.parseInt(saveReader.readLine());
 
             saveReader.close();
         } catch (IOException e) {
@@ -61,11 +57,7 @@ public class gameSaves {
                             playerMaxMana + "\n" +
                             playerAttack + "\n" +
                             playerCaps + "\n" +
-                            matchNum + "\n" +
-                            hasMonkeyFist + "\n" +
-                            hasBrassKnuckles + "\n" +
-                            hasGoldStaff + "\n" +
-                            hasMace
+                            matchNum
             );
             print("Your save path: " + playerData.getAbsolutePath());
             print("File size: " + playerData.length() + " bytes");

@@ -22,11 +22,6 @@ public class vars {
     public static int playerCaps = 64;
     public static int matchNum = 0;
 
-    public static int hasMonkeyFist = 0;
-    public static int hasBrassKnuckles = 0;
-    public static int hasGoldStaff = 0;
-    public static int hasMace = 0;
-
     public static List<String> inventory = new ArrayList<String>();
 
 
