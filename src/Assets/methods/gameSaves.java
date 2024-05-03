@@ -23,12 +23,12 @@ public class gameSaves {
             hasGoldStaff = Integer.parseInt(saveReader.readLine());
             hasMace = Integer.parseInt(saveReader.readLine());
 
-            print("Your save path: " + playerData.getAbsolutePath());
-            print("File size: " + playerData.length() + " bytes");
             saveReader.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
+        print("Your save path: " + playerData.getAbsolutePath());
+        print("File size: " + playerData.length() + " bytes");
     }
     public static void loadPrompt() {
         print("What file? (type character name)");

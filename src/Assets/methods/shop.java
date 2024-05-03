@@ -4,8 +4,10 @@ import static Assets.vars.*;
 import static Assets.methods.dialogue.*;
 
 public class shop {
+
     public static void openShop() {
         print("[Shopkeeper] Hello! Welcome to my shop!");
+        label:
         while(true) {
             String[] shopItems = new String[9];
             shopItems[0] = "Full Mana                           ";
@@ -18,7 +20,7 @@ public class shop {
             shopItems[7] = "Gold Staff (+16 attack power)       ";
             shopItems[8] = "Mace (+ 32 attack power)            ";
 
-            int[] shopItemCost = new int[9];
+            int[] shopItemCost = new int[shopItems.length];
             shopItemCost[0] = 10;
             shopItemCost[1] = 128;
             shopItemCost[2] = 10;
@@ -30,48 +32,66 @@ public class shop {
             shopItemCost[8] = 256;
 
             print("[Shopkeeper] What can I get for you?");
-            for(int i = 0; i < 9; i++) {
-                print("Shop Item #" + i + ": " + "(C$" + shopItemCost[i] + ") " + shopItems[i]);
+            for(int i = 0; i < shopItems.length; i++) {
+                option("Shop Item #" + i + ": " + "(C$" + shopItemCost[i] + ") " + shopItems[i]);
             }
             print("[x] Exit Shop");
             print("(You Have C$" + playerCaps + ")");
             String shopOption = scanner.next();
-            if(shopOption.equals("0")) {
-                purchase(shopItemCost[0]);
-                giveFullMana();
-            }
-            else if(shopOption.equals("1")) {
-                purchase(shopItemCost[1]);
-                giveMaxMana();
-            }
-            else if(shopOption.equals("2")) {
-                purchase(shopItemCost[2]);
-                giveFullHeal();
-            }
-            else if(shopOption.equals("3")) {
-                purchase(shopItemCost[3]);
-                giveMaxHealth();
-            }
-            else if(shopOption.equals("4")) {
-                purchase(shopItemCost[4]);
-                giveFullHeal();
-                giveFullMana();
-                discount(4);
-            }
-            else if(shopOption.equals("5")) {
-                if(hasMonkeyFist > 0) {
-                    purchase(shopItemCost[5]);
-                    giveMonkeyFist();
-                } else {
-                    print("Sorry, you already have that!");
-                }
-            }
-            else if(shopOption.equals("x")) {
-                print("[Shopkeeper] See you around!");
-                break;
-            }
-            else {
-                print("Whoops! Invalid Option!");
+            // purchase(shopItemCost[Integer.parseInt(shopOption)]);
+            switch (shopOption) {
+                case "0":
+                    purchase(shopItemCost[0]);
+                    giveFullMana();
+                    break;
+                case "1":
+                    purchase(shopItemCost[1]);
+                    giveMaxMana();
+                    break;
+                case "2":
+                    purchase(shopItemCost[2]);
+                    giveFullHeal();
+                    break;
+                case "3":
+                    purchase(shopItemCost[3]);
+                    giveMaxHealth();
+                    break;
+                case "4":
+                    purchase(shopItemCost[4]);
+                    giveFullHeal();
+                    giveFullMana();
+                    discount(4);
+                    break;
+                case "5":
+                    if (hasMonkeyFist > 0) {
+                        purchase(shopItemCost[5]);
+                        giveMonkeyFist();
+                    } else {
+                        print("Sorry, you already have that!");
+                    }
+                    break;
+                case "6":
+                    if (hasBrassKnuckles > 0) {
+                        purchase(shopItemCost[6]);
+                        giveBrassKnuckles();
+                    } else {
+                        print("Sorry, you already have that!");
+                    }
+                    break;
+                case "7":
+                    if (hasGoldStaff > 0) {
+                        purchase(shopItemCost[7]);
+                        giveGoldStaff();
+                    } else {
+                        print("Sorry, you already have that!");
+                    }
+                    break;
+                case "x":
+                    print("[Shopkeeper] See you around!");
+                    break label;
+                default:
+                    print("Whoops! Invalid Option!");
+                    break;
             }
         }
     }
@@ -92,7 +112,23 @@ public class shop {
     public static void giveMonkeyFist() {
         if(hasMonkeyFist > 0) {
             playerAttack += 4;
-            boolean hasMonkeyFist = true;
+            hasMonkeyFist = 1;
+        } else {
+            print("Sorry, you already have that!");
+        }
+    }
+    public static void giveBrassKnuckles() {
+        if(hasBrassKnuckles > 0) {
+            playerAttack += 8;
+            hasBrassKnuckles = 1;
+        } else {
+            print("Sorry, you already have that!");
+        }
+    }
+    public static void giveGoldStaff() {
+        if(hasGoldStaff > 0) {
+            playerAttack += 8;
+            hasGoldStaff = 1;
         } else {
             print("Sorry, you already have that!");
         }
