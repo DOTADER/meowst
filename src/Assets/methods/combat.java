@@ -36,10 +36,10 @@ public class combat {
         }
     }
     public static void checkFightOver() {
-        if(playerHealth <= 0) {
-            boolean fightOver = true;
-        } else if(enemyHealth <= 0) {
-            boolean fightOver = true;
+        if(playerHealth < 1) {
+            fightOver = true;
+        } else if(enemyHealth < 1) {
+            fightOver = true;
         }
     }
     public static void interRoundCheck() {

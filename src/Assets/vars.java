@@ -1,6 +1,8 @@
 package Assets;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class vars {
@@ -24,6 +26,8 @@ public class vars {
     public static int hasBrassKnuckles = 0;
     public static int hasGoldStaff = 0;
     public static int hasMace = 0;
+
+    public static List<String> inventory = new ArrayList<String>();
 
 
     /*--- Enemy ---*/
