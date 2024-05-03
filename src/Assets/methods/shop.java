@@ -38,7 +38,10 @@ public class shop {
                 print("[x] Exit Shop");
                 print("(You Have C$" + playerCaps + ")");
                 String shopOption = scanner.next();
-                if(playerCaps >= shopItemCost[Integer.parseInt(shopOption)]) {
+                if (shopOption.equals("x")) {
+                    print("[Shopkeeper] Alright, see you later!");
+                    break;
+                } else if(playerCaps >= shopItemCost[Integer.parseInt(shopOption)]) {
                     purchase(shopItemCost[Integer.parseInt(shopOption)]);
                     inventory.add(shopItems[Integer.parseInt(shopOption)]);
                     print(inventory.toString());
