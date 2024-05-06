@@ -1,19 +1,20 @@
 package Assets.methods;
 
+import static Assets.methods.Inventory.invOpen;
 import static Assets.methods.dialogue.*;
 import static Assets.vars.*;
 
 public class combat {
     public static void attackEnemy() {
         enemyHealth -= playerAttack;
-        playerMana -= playerAttackCost;
+        playerStamina -= playerAttackCost;
 
         timer(1);
 
-        if(playerMana < 8) {
+        if(playerStamina < 8) {
             playerHealth = 0;
-            playerMana = 0;
-            print("You tried, but your mana has depleted!");
+            playerStamina = 0;
+            print("You tried, but your stamina has depleted!");
         } else {
             print(enemyName + " took " + playerAttack + " damage!");
         }
@@ -21,7 +22,7 @@ public class combat {
     public static void healSelf() {
         if(playerHealth < 64){
             playerHealth += playerHeal;
-            playerMana -= playerHealCost;
+            playerStamina -= playerHealCost;
             boolean healPlayer = true;
 
         } else {
@@ -29,10 +30,10 @@ public class combat {
             boolean healPlayer = false;
 
         }
-        if(playerMana < 8) {
+        if(playerStamina < 8) {
             playerHealth = 0;
-            playerMana = 0;
-            print("You tried, but your mana has depleted!");
+            playerStamina = 0;
+            print("You tried, but your stamina has depleted!");
         }
     }
     public static void checkFightOver() {
@@ -43,19 +44,19 @@ public class combat {
         }
     }
     public static void interRoundCheck() {
-        print("You have: " + playerHealth + " HP, and " + playerMana + " mana.");
-        print(enemyName + " has: " + enemyHealth + " HP, and " + enemyMana + " mana.");
+        print("You have: " + playerHealth + " HP, and " + playerStamina + " stamina.");
+        print(enemyName + " has: " + enemyHealth + " HP, and " + enemyStamina + " stamina.");
     }
     public static void attackPlayer() {
         playerHealth -= playerAttack;
-        enemyMana -= playerAttackCost;
+        enemyStamina -= playerAttackCost;
 
         timer(1);
 
-        if(enemyMana < 8) {
+        if(enemyStamina < 8) {
             enemyHealth = 0;
-            enemyMana = 0;
-            print(enemyName + " ran out of mana!");
+            enemyStamina = 0;
+            print(enemyName + " ran out of stamina!");
         } else {
             print(enemyName + " attacked you for " + playerAttack + " damage!");
         }
@@ -63,56 +64,62 @@ public class combat {
     public static void healEnemy() {
         if(enemyHealth < 64){
             enemyHealth += playerHeal;
-            enemyMana -= playerHealCost;
+            enemyStamina -= playerHealCost;
 
         } else {
             print(enemyName + " healed for " + playerHeal + " HP");
             print("But their health is already full!");
 
         }
-        if(enemyMana < 8) {
+        if(enemyStamina < 8) {
             enemyHealth = 0;
-            enemyMana = 0;
-            print(enemyName + " ran out of mana!");
+            enemyStamina = 0;
+            print(enemyName + " ran out of stamina!");
         }
     }
     public static void postFightCheck() {
         if(playerHealth <= 0) {
             print("Game Over!");
             print("Meowst Match Streak: " + matchNum);
+            print("You lost 10 Caps!");
+            playerCaps -= playerMaxHealth / 4;
             boolean gameOver = true;
         } else if (enemyHealth <= 0) {
             print("Meowst Match " + matchNum + ": Win!");
-            playerCaps += (playerMaxHealth / 2);
+            playerCaps += playerMaxHealth / 2;
+            boolean gameOver = true;
         }
     }
     public static void fullCombatLoop() {
+        gameOver = false;
         matchNum = matchNum + 1;
         print("Meowst Match " + matchNum + ": Begin!");
 
-        timer(1);
+        timer(3);
 
-        narrate("Looks like he's got "+ enemyHealth +" HP and "+ enemyMana +" Mana. Think you can handle it?");
+        narrate("Looks like he's got "+ enemyHealth +" HP and "+ enemyStamina +" stamina. Think you can handle it?");
 
         // Main Combat Loop
         while(playerHealth > 0 && enemyHealth > 0) {
 
             // Initial Prompt
             print("What will you do?:");
-            option("1. Attack (8 damage, -4 mana)");
-            option("2. Heal (+16 health, -32 mana)");
+            option("1. Attack (8 damage, -4 stamina)");
+            option("2. Heal (+16 health, -32 stamina)");
+            option("3. Inventory");
 
-            int combatOption = scanner.nextInt();
+            String combatOption = scanner.next();
 
-            if(combatOption == 1) {
-                attackEnemy();
-
-            } else if(combatOption == 2) {
-                if(healPlayer) {
-                    healSelf();
-                } else if (!healPlayer) {
-                    continue;
+            switch (combatOption) {
+                case "1" -> attackEnemy();
+                case "2" -> {
+                    if (healPlayer) {
+                        healSelf();
+                    } else if (!healPlayer) {
+                        continue;
+                    }
                 }
+                case "3" -> invOpen();
             }
 
             checkFightOver();

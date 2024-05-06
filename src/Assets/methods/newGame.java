@@ -37,15 +37,18 @@ public class newGame {
         timer(3);
         narrate("The more Meowst Matches you win, the more powerful you become!");
         timer(3);
-        narrate("You have 3 options on what's next:");
+        narrate("You have 4 options on what's next:");
         timer(3);
-        narrate("1. [S] will save your game. You can change the saves folder whenever you use [S].");
+        narrate("1. [S] will save your game. Nothing more to say here!");
         timer(3);
-        narrate("2. [C$] is the shop. This is where you spend your hard-earned Caps to gain mana, max health, attack power, etc.");
+        narrate("2. [C$] is the shop. This is where you spend your hard-earned C$ (Caps) to gain stamina, max health, attack power, etc.");
         timer(3);
-        narrate("3. [>] takes you where the fun is! This is your main way to get into Meowst Matches and earn those sweet sweet caps!");
+        narrate("3. [>] takes you where the Meowst Matches are! Fight for those C$! You might even find something on your way...");
+        timer(3);
+        narrate("4. [I] opens your inventory. See what's in there and use what you need!");
         timer(10);
         narrate("Alright, I've waited long enough.");
+        timer(3);
     }
     public static void entireIntro() {
         while(true) {
