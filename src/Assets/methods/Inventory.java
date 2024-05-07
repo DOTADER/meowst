@@ -19,35 +19,10 @@ public class Inventory {
             clearScreen();
             switch (invOption) {
                 case "1":
-                    print("Your Consumables: " + invConsumables.toString());
-                    print("What would you like to use?");
-                    print("[x] Exit");
-                    invOption = scanner.next();
-                    if (invOption.contains("max")) {
-                        max();
-                        timer(5);
-                    } else if (invOption.contains("full")) {
-                        full();
-                        timer(5);
-                    }
-                    clearScreen();
+                    invOpenConsumables();
                     break;
                 case "2":
-                    print("Your weapons: " + invWeapons.toString());
-                    print("What would you like to use?");
-                    print("[x] Exit");
-                    invOption = scanner.next();
-                    switch (invOption) {
-                        case "Monkey Fist", "monkey fist", "1":
-                            useMonkeyFist();
-                        case "Brass Knuckles", "brass knuckles", "2":
-                            useBrassKnuckles();
-                        case "Gold Staff", "gold staff", "3":
-                            useGoldStaff();
-                        case "Mace", "mace", "4":
-                            useMace();
-                    }
-                    clearScreen();
+                    invOpenWeapons();
                     break;
                 case "x":
                     clearScreen();
@@ -59,36 +34,115 @@ public class Inventory {
 
 
 
+    public static void invOpenWeapons() {
+        print("Your weapons: " + invWeapons.toString());
+        print("What would you like to use?");
+        print("[x] Exit");
+        invOption = scanner.next().toLowerCase().replace(" ", "");
+        switch (invOption) {
+            case "monkeyfist" -> useMonkeyFist();
+            case "brassknuckles" -> useBrassKnuckles();
+            case "goldstaff" -> useGoldStaff();
+            case "mace" -> useMace();
+        }
+        clearScreen();
+    }
+
+    public static void invOpenConsumables() {
+        print("Your Consumables: " + invConsumables.toString().toLowerCase());
+        print("What would you like to use?");
+        print("[x] Exit");
+        invOption = scanner.next();
+        if (invOption.contains("max")) {
+            max();
+            timer(5);
+        } else if (invOption.contains("full")) {
+            full();
+            timer(5);
+        }
+        clearScreen();
+    }
+
+
+
     public static void useMonkeyFist() {
-        enemyHealth -= 12;
+        enemyHealth -= playerAttack + 4;
+        playerStamina -= playerAttackCost;
+
+        timer(1);
+
+        if(playerStamina < 8) {
+            playerHealth = 0;
+            playerStamina = 0;
+            print("You tried, but your stamina has depleted!");
+        } else {
+            print(enemyName + " took " + (playerAttack + 4) + " damage!");
+        }
         if (enemyHealth > (playerHealth + 4)) {
-            invWeapons.remove("Monkey Fist");
+            invWeapons.remove("MonkeyFist");
             print("Your Monkey Fist broke!");
         }
+        timer(1);
     }
 
     public static void useBrassKnuckles() {
-        enemyHealth -= 16;
-        if (enemyHealth > playerHealth + 4) {
-            invWeapons.remove("Brass Knuckles");
+        enemyHealth -= playerAttack + 8;
+        playerStamina -= playerAttackCost;
+
+        timer(1);
+
+        if(playerStamina < 8) {
+            playerHealth = 0;
+            playerStamina = 0;
+            print("You tried, but your stamina has depleted!");
+        } else {
+            print(enemyName + " took " + (playerAttack + 8) + " damage!");
+        }
+        if (enemyHealth > (playerHealth + 4)) {
+            invWeapons.remove("BrassKnuckles");
             print("Your Brass Knuckles broke!");
         }
+        timer(1);
     }
 
     public static void useGoldStaff() {
-        enemyHealth -= 24;
-        if (enemyHealth > playerHealth + 4) {
-            invWeapons.remove("Gold Staff");
+        enemyHealth -= playerAttack + 16;
+        playerStamina -= playerAttackCost;
+
+        timer(1);
+
+        if(playerStamina < 8) {
+            playerHealth = 0;
+            playerStamina = 0;
+            print("You tried, but your stamina has depleted!");
+        } else {
+            print(enemyName + " took " + (playerAttack + 16) + " damage!");
+        }
+        if (enemyHealth > (playerHealth + 4)) {
+            invWeapons.remove("GoldStaff");
             print("Your Gold Staff broke!");
         }
+        timer(1);
     }
 
     public static void useMace() {
-        enemyHealth -= 40;
-        if (enemyHealth > playerHealth + 4) {
+        enemyHealth -= playerAttack + 32;
+        playerStamina -= playerAttackCost;
+
+        timer(1);
+
+        if(playerStamina < 8) {
+            playerHealth = 0;
+            playerStamina = 0;
+            print("You tried, but your stamina has depleted!");
+        } else {
+            print(enemyName + " took " + (playerAttack + 32) + " damage!");
+        }
+        if (enemyHealth > (playerHealth + 4)) {
             invWeapons.remove("Mace");
             print("Your Mace broke!");
         }
+        timer(1);
     }
 
 

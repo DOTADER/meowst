@@ -1,6 +1,7 @@
 package Assets.methods;
 
 import static Assets.methods.Inventory.invOpen;
+import static Assets.methods.Inventory.*;
 import static Assets.methods.dialogue.*;
 import static Assets.vars.*;
 
@@ -89,6 +90,7 @@ public class combat {
             playerCaps += playerMaxHealth / 2;
             boolean gameOver = true;
         }
+        timer(3);
     }
     public static void fullCombatLoop() {
         gameOver = false;
@@ -106,7 +108,8 @@ public class combat {
             print("What will you do?:");
             option("1. Attack (8 damage, -4 stamina)");
             option("2. Heal (+16 health, -32 stamina)");
-            option("3. Inventory");
+            option("3. Weapons");
+            option("4. Consumables");
 
             String combatOption = scanner.next();
 
@@ -119,7 +122,8 @@ public class combat {
                         continue;
                     }
                 }
-                case "3" -> invOpen();
+                case "3" -> invOpenWeapons();
+                case "4" -> invOpenConsumables();
             }
 
             checkFightOver();

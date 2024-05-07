@@ -1,9 +1,5 @@
 package Assets.methods;
 
-
-import java.util.ArrayList;
-import java.util.Arrays;
-
 import static Assets.methods.dialogue.option;
 import static Assets.methods.dialogue.print;
 import static Assets.vars.*;
