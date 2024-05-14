@@ -2,8 +2,6 @@ package com.meowstgdx.game.entities.animals;
 
 import com.meowstgdx.game.entities.Entity;
 
-import static com.meowstgdx.game.screens.MainMenuScreen.atlas;
-
 public abstract class Animal extends Entity {
     protected int moveSpeed;
     protected int attackSpeed;
@@ -15,7 +13,7 @@ public abstract class Animal extends Entity {
     protected int protection;
 
     protected Animal(float moveSpeed, float attackSpeed, int health, int maxHealth, int stamina, int maxStamina, int damage, int protection) {
-        super(0, 0, 5, 5, atlas);
+        super(0, 0, 5, 5);
     }
 
     public void hurt(int amount) {

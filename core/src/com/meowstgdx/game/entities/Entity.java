@@ -2,14 +2,16 @@ package com.meowstgdx.game.entities;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.meowstgdx.game.Utils;
 
 public abstract class Entity {
 
+    protected final TextureAtlas atlas = new TextureAtlas(Utils.getInternalPath("textures/atlas/meowst-textures.atlas"));
     protected static Sprite textureSprite;
     protected float xPos, yPos;
     protected int width, height;
 
-    protected Entity(float xPos, float yPos, float width, float height, TextureAtlas atlas) {
+    protected Entity(float xPos, float yPos, float width, float height) {
         super();
     }
 

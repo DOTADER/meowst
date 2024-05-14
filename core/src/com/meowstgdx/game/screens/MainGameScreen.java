@@ -14,7 +14,6 @@ import com.meowstgdx.game.entities.blocks.Planks;
 public class MainGameScreen implements Screen {
 
     public static SpriteBatch spriteBatch;
-    public final TextureAtlas atlas = new TextureAtlas(Utils.getInternalPath("textures/atlas/meowst-textures.atlas"));
     public static Player player = new Player(0,0);
 
     MeowstGDX game;
@@ -64,6 +63,5 @@ public class MainGameScreen implements Screen {
     @Override
     public void dispose() {
         spriteBatch.dispose();
-        atlas.dispose();
     }
 }

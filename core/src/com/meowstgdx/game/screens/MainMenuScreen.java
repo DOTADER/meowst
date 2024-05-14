@@ -13,7 +13,6 @@ import static com.meowstgdx.game.screens.MainGameScreen.spriteBatch;
 
 public class MainMenuScreen implements Screen {
 
-    public static final TextureAtlas atlas = new TextureAtlas(Utils.getInternalPath("textures/atlas/meowst-textures.atlas"));
     public static StartButton startButton = new StartButton();
 
     MeowstGDX game;
@@ -61,6 +60,5 @@ public class MainMenuScreen implements Screen {
     @Override
     public void dispose() {
         spriteBatch.dispose();
-        atlas.dispose();
     }
 }

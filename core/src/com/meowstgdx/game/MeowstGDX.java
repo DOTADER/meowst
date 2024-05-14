@@ -1,6 +1,7 @@
 package com.meowstgdx.game;
 
 import com.badlogic.gdx.Game;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.meowstgdx.game.screens.MainGameScreen;
 import com.meowstgdx.game.screens.MainMenuScreen;
 
@@ -26,6 +27,6 @@ public class MeowstGDX extends Game {
 
 	@Override
 	public void resize(int width, int height) {
-
+		
 	}
 }

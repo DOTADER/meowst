@@ -4,8 +4,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.meowstgdx.game.MeowstGDX;
 
-import static com.meowstgdx.game.screens.MainMenuScreen.atlas;
-
 public class Player extends Animal {
     private int caps;
     private int kills;
