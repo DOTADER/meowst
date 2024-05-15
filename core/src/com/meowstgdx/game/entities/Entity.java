@@ -7,7 +7,7 @@ import com.meowstgdx.game.Utils;
 public abstract class Entity {
 
     protected final TextureAtlas atlas = new TextureAtlas(Utils.getInternalPath("textures/atlas/meowst-textures.atlas"));
-    protected static Sprite textureSprite;
+    protected Sprite textureSprite;
     protected float xPos, yPos;
     protected int width, height;
 
@@ -17,7 +17,7 @@ public abstract class Entity {
 
 
     // Getters
-    public static Sprite getTextureSprite() {
+    public Sprite getTextureSprite() {
         return textureSprite;
     }
 

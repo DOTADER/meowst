@@ -4,8 +4,14 @@ import com.meowstgdx.game.entities.Entity;
 
 public class Planks extends Entity {
     public Planks() {
-        super(0, 0, 5, 5);
+        super(30, 30, 5, 5);
+
+        this.setWidth(100);
+        this.setHeight(100);
+        this.setyPos(30);
+        this.setxPos(30);
+
         this.setTextureSprite(atlas.createSprite("planks"));
-        this.getTextureSprite().setBounds(0, 0, 100, 100);
+        getTextureSprite().setBounds(30, 30, 100, 100);
     }
 }

@@ -4,9 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.meowstgdx.game.MeowstGDX;
-import com.meowstgdx.game.Utils;
 import com.meowstgdx.game.entities.buttons.StartButton;
 
 import static com.meowstgdx.game.screens.MainGameScreen.spriteBatch;

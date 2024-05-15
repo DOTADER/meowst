@@ -1,32 +1,35 @@
 package com.meowstgdx.game;
 
 import com.badlogic.gdx.Game;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.Gdx;
 import com.meowstgdx.game.screens.MainGameScreen;
-import com.meowstgdx.game.screens.MainMenuScreen;
+import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.meowstgdx.game.screens.Orthographic;
 
 public class MeowstGDX extends Game {
 
-	public static int WIDTH = 1280;
-	public static int HEIGHT = 720;
+	private Orthographic orthographic;
+	public static final int SCREEN_WIDTH = 1280;
+	public static final int SCREEN_HEIGHT = 720;
 
 	@Override
-	public void create () {
-		this.setScreen(new MainGameScreen(this));
+	public void create() {
+		orthographic = new Orthographic(SCREEN_WIDTH, SCREEN_HEIGHT);
+		this.setScreen(new MainGameScreen(this, orthographic));
 	}
 
 	@Override
-	public void render () {
+	public void render() {
 		super.render();
 	}
 
 	@Override
-	public void dispose () {
-
+	public void dispose() {
+		super.dispose();
 	}
 
 	@Override
 	public void resize(int width, int height) {
-		
+		super.resize(width, height);
 	}
 }

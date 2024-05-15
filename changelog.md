@@ -1,28 +1,25 @@
 **Fixes**
 -
-- None because this is the first working*ish* build LOL
+- Rendering of more than one object is working properly.
 
 ***
 
 **Improvements**
 -
-- 2D graphics capabilities!!! LWJGL with LibGDX is a huge carry here! (do we call this "Phase 2(D)?")
-- Object-Oriented Programming (OOP) is finally, *actually,* a vital part of the game
-- New changelog file! :D
+- There's a new HUD class that's sitting in the background for now, as I'm still working on getting it working properly.
+- Planks for the floor of the will-be player hub/house!
 
 ***
 
 **Features**
 -
-- So. Many. ANIMALS.
-- Block variety (yet to be implemented, but it's in the classes)
-- Items, weapons, armor, and upgradable materials that give different perks and debuffs
+- Camera Zoom!
 
 ***
 
 **Known Bugs**
 -
-- Pretty much nothing works except the player and its controller, enjoy the demo! :D
+- HUD isn't showing up on the screen.
 
 ***
 
@@ -30,7 +27,7 @@
 -
 - Squash the bugs, create 1,025 more bugs, etc. etc. until the thing works.
 - Procedurally generated terrain for Overworld, Cave, and Underwater areas.
-- "Homebase" for the player, equipped with an upgradable shop
+- Improved Homebase for the player, equipped with an upgradable shop
 - Day/Night Cycle
 - Rare solar eclipse event (~1/500 chance?) with unique enemies and affects on the world
 - MANY Enemies and Passive animals unique to their environments

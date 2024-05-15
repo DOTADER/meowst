@@ -7,6 +7,6 @@ public class Fog extends Entity {
         super(0, 0, 5, 5);
 
         this.setTextureSprite(atlas.createSprite("fog"));
-        this.getTextureSprite().setBounds(0, 0, 100, 100);
+        getTextureSprite().setBounds(0, 0, this.width, this.height);
     }
 }
