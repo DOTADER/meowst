@@ -29,7 +29,7 @@ public class HUD {
         // Create health bar
         healthBar = new ProgressBar(0, player.getMaxHealth(), 1, false, new ProgressBar.ProgressBarStyle());
         healthBar.getStyle().background = createColorDrawable(Color.DARK_GRAY); // Background color
-        healthBar.getStyle().background.setMinHeight(20);
+        healthBar.getStyle().background.setMinHeight(10);
         healthBar.getStyle().knobBefore = createColorDrawable(Color.RED); // Knob (filled part) color
         healthBar.getStyle().knobBefore.setMinHeight(20);
         healthBar.setValue(player.getHealth());
@@ -40,7 +40,7 @@ public class HUD {
         // Create stamina bar
         staminaBar = new ProgressBar(0, player.getMaxStamina(), 1, false, new ProgressBar.ProgressBarStyle());
         staminaBar.getStyle().background = createColorDrawable(Color.DARK_GRAY); // Background color
-        staminaBar.getStyle().background.setMinHeight(20);
+        staminaBar.getStyle().background.setMinHeight(10);
         staminaBar.getStyle().knobBefore = createColorDrawable(Color.GREEN); // Knob (filled part) color
         staminaBar.getStyle().knobBefore.setMinHeight(20);
         staminaBar.setValue(player.getStamina());

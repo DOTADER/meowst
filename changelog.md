@@ -1,18 +1,18 @@
 **Fixes**
 -
-- HUD renders properly*ish*
+- None
 
 ***
 
 **Improvements**
 -
-- Player now loses stamina while running, and gains it back otherwise.
+- HUD bars are much larger and easier to see
 
 ***
 
 **Features**
 -
-- HUD shows current player stamina, health, and will-be inventory!
+- None
 
 ***
 
