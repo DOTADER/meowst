@@ -1,25 +1,24 @@
 **Fixes**
 -
-- Rendering of more than one object is working properly.
+- HUD renders properly*ish*
 
 ***
 
 **Improvements**
 -
-- There's a new HUD class that's sitting in the background for now, as I'm still working on getting it working properly.
-- Planks for the floor of the will-be player hub/house!
+- Player now loses stamina while running, and gains it back otherwise.
 
 ***
 
 **Features**
 -
-- Camera Zoom!
+- HUD shows current player stamina, health, and will-be inventory!
 
 ***
 
 **Known Bugs**
 -
-- HUD isn't showing up on the screen.
+- No clue! :D
 
 ***
 

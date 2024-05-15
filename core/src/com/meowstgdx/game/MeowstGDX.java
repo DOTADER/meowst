@@ -1,9 +1,7 @@
 package com.meowstgdx.game;
 
 import com.badlogic.gdx.Game;
-import com.badlogic.gdx.Gdx;
 import com.meowstgdx.game.screens.MainGameScreen;
-import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.meowstgdx.game.screens.Orthographic;
 
 public class MeowstGDX extends Game {

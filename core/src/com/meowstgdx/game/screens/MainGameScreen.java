@@ -33,6 +33,7 @@ public class MainGameScreen implements Screen {
     public void render(float delta) {
         // Move player
         player.move();
+        hud.updatePlayerStats();
 
         // Handle zooming
         if (Gdx.input.isKeyPressed(Input.Keys.Z)) {
@@ -81,6 +82,8 @@ public class MainGameScreen implements Screen {
 
         // Render HUD after player
         hud.render(delta);
+
+        System.out.println("Player Stamina: " + player.getStamina());
     }
 
     @Override

@@ -7,8 +7,8 @@ public abstract class Mob extends Entity {
     protected int attackSpeed;
     protected int health;
     protected int maxHealth;
-    protected int stamina;
-    protected int maxStamina;
+    protected float stamina;
+    protected float maxStamina;
     protected int damage;
     protected int protection;
 
@@ -38,11 +38,11 @@ public abstract class Mob extends Entity {
         return maxHealth;
     }
 
-    public int getStamina() {
+    public float getStamina() {
         return stamina;
     }
 
-    public int getMaxStamina() {
+    public float getMaxStamina() {
         return maxStamina;
     }
 

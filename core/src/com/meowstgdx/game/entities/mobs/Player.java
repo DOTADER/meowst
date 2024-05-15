@@ -20,6 +20,10 @@ public class Player extends Mob {
         this.setHeight(100);
         this.setyPos(y);
         this.setxPos(x);
+        this.health = 64;
+        this.maxHealth = 64;
+        this.stamina = 64;
+        this.maxStamina = 64;
 
         this.setTextureSprite(atlas.createSprite("playerStillRight"));
         getTextureSprite().setBounds(x, y, this.width, this.height);
@@ -32,8 +36,20 @@ public class Player extends Mob {
     public void move() {
         this.moveSpeed = 300;
         // Double movement speed if SHIFT_LEFT is pressed
-        if (Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT)) {
+        if (this.stamina <= 0) {
+
+        } else if (Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT)) {
             this.moveSpeed *= 2;
+            this.stamina -= 0.25;
+        }
+
+        if (!Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT)) {
+            if (this.stamina < this.maxStamina) {
+                System.out.println("Refilling Stamina...");
+                this.stamina += 0.125;
+            } else {
+                this.stamina = this.maxStamina;
+            }
         }
 
         // Move in each direction separately
