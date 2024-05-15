@@ -82,8 +82,6 @@ public class MainGameScreen implements Screen {
 
         // Render HUD after player
         hud.render(delta);
-
-        System.out.println("Player Stamina: " + player.getStamina());
     }
 
     @Override

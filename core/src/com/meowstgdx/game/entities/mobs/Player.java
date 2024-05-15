@@ -45,7 +45,6 @@ public class Player extends Mob {
 
         if (!Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT)) {
             if (this.stamina < this.maxStamina) {
-                System.out.println("Refilling Stamina...");
                 this.stamina += 0.125;
             } else {
                 this.stamina = this.maxStamina;

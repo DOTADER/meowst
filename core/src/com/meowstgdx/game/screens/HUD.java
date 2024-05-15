@@ -28,25 +28,29 @@ public class HUD {
 
         // Create health bar
         healthBar = new ProgressBar(0, player.getMaxHealth(), 1, false, new ProgressBar.ProgressBarStyle());
-        healthBar.getStyle().background = createColorDrawable(Color.BLACK); // Background color
+        healthBar.getStyle().background = createColorDrawable(Color.DARK_GRAY); // Background color
+        healthBar.getStyle().background.setMinHeight(20);
         healthBar.getStyle().knobBefore = createColorDrawable(Color.RED); // Knob (filled part) color
+        healthBar.getStyle().knobBefore.setMinHeight(20);
         healthBar.setValue(player.getHealth());
         // Set size and position...
         healthBar.setSize(400, 20); // Set width and height
-        healthBar.setPosition(20, healthBar.getHeight() + 30); // Set x and y position on the stage
+        healthBar.setPosition(20, healthBar.getHeight() + 60); // Set x and y position on the stage
 
         // Create stamina bar
         staminaBar = new ProgressBar(0, player.getMaxStamina(), 1, false, new ProgressBar.ProgressBarStyle());
-        staminaBar.getStyle().background = createColorDrawable(Color.BLACK); // Background color
+        staminaBar.getStyle().background = createColorDrawable(Color.DARK_GRAY); // Background color
+        staminaBar.getStyle().background.setMinHeight(20);
         staminaBar.getStyle().knobBefore = createColorDrawable(Color.GREEN); // Knob (filled part) color
+        staminaBar.getStyle().knobBefore.setMinHeight(20);
         staminaBar.setValue(player.getStamina());
         // Set size and position...
         staminaBar.setSize(400, 20); // Set width and height
-        staminaBar.setPosition(20, staminaBar.getHeight() + 60); // Set x and y position on the stage
+        staminaBar.setPosition(20, staminaBar.getHeight() + 30); // Set x and y position on the stage
 
         // Create hotbar
         hotbar = new Table();
-        hotbar.setBackground(createColorDrawable(Color.DARK_GRAY)); // Set hotbar background color
+        hotbar.setBackground(createColorDrawable(Color.LIGHT_GRAY)); // Set hotbar background color
         hotbar.setSize(400, 20); // Set width and height
         hotbar.setPosition(20, staminaBar.getHeight()); // Set x and y position on the stage
         // Add inventory items...
@@ -59,42 +63,6 @@ public class HUD {
     public void render(float delta) {
         stage.act();
         stage.draw();
-
-        ShapeRenderer shapeRenderer = new ShapeRenderer();
-        shapeRenderer.setProjectionMatrix(stage.getCamera().combined);
-        shapeRenderer.begin(ShapeRenderer.ShapeType.Line);
-        shapeRenderer.setColor(Color.RED);
-
-        // Draw outline around health bar
-        float healthBarX = healthBar.getX();
-        float healthBarY = healthBar.getY();
-        float healthBarWidth = healthBar.getWidth();
-        float healthBarHeight = healthBar.getHeight();
-        Rectangle healthBarBounds = new Rectangle(healthBarX, healthBarY, healthBarWidth, healthBarHeight);
-        shapeRenderer.rect(healthBarBounds.x, healthBarBounds.y, healthBarBounds.width, healthBarBounds.height);
-
-        shapeRenderer.setColor(Color.GREEN);
-
-        // Draw outline around stamina bar
-        float staminaBarX = staminaBar.getX();
-        float staminaBarY = staminaBar.getY();
-        float staminaBarWidth = staminaBar.getWidth();
-        float staminaBarHeight = staminaBar.getHeight();
-        Rectangle staminaBarBounds = new Rectangle(staminaBarX, staminaBarY, staminaBarWidth, staminaBarHeight);
-        shapeRenderer.rect(staminaBarBounds.x, staminaBarBounds.y, staminaBarBounds.width, staminaBarBounds.height);
-
-        shapeRenderer.setColor(Color.WHITE);
-
-        // Draw outline around hotbar
-        float hotbarX = hotbar.getX();
-        float hotbarY = hotbar.getY();
-        float hotbarWidth = hotbar.getWidth();
-        float hotbarHeight = hotbar.getHeight();
-        Rectangle hotbarBounds = new Rectangle(hotbarX, hotbarY, hotbarWidth, hotbarHeight);
-        shapeRenderer.rect(hotbarBounds.x, hotbarBounds.y, hotbarBounds.width, hotbarBounds.height);
-
-        shapeRenderer.end();
-
     }
 
     public void resize(int width, int height) {
