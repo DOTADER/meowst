@@ -6,6 +6,7 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.meowstgdx.game.MeowstGDX;
+import com.meowstgdx.game.entities.blocks.DoorCarpet;
 import com.meowstgdx.game.entities.mobs.Player;
 import com.meowstgdx.game.entities.blocks.Planks;
 
@@ -17,6 +18,7 @@ public class MainGameScreen implements Screen {
     public static SpriteBatch spriteBatch;
     public static Player player = new Player(0,0);
     public static Planks planks = new Planks();
+    public static DoorCarpet doorCarpet = new DoorCarpet();
 
     public MainGameScreen(MeowstGDX game, Orthographic orthographic) {
         this.game = game;
@@ -73,6 +75,9 @@ public class MainGameScreen implements Screen {
                 planks.getTextureSprite().draw(spriteBatch);
             }
         }
+
+        doorCarpet.getTextureSprite().setPosition(16 * doorCarpet.getWidth(), 3 * doorCarpet.getHeight());
+        doorCarpet.getTextureSprite().draw(spriteBatch);
 
         // Render player
         player.getTextureSprite().draw(spriteBatch);

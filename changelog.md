@@ -6,7 +6,7 @@
 
 **Improvements**
 -
-- HUD bars are much larger and easier to see
+- Mob texture states are improved on the backend, using "facingRight" and "holdingItem" states to change textures accordingly
 
 ***
 

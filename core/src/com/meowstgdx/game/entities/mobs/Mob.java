@@ -8,9 +8,11 @@ public abstract class Mob extends Entity {
     protected int health;
     protected int maxHealth;
     protected float stamina;
-    protected float maxStamina;
+    protected int maxStamina;
     protected int damage;
     protected int protection;
+    protected boolean facingRight;
+    protected boolean holdingItem;
 
     protected Mob(float moveSpeed, float attackSpeed, int health, int maxHealth, int stamina, int maxStamina, int damage, int protection) {
         super(0, 0, 5, 5);
@@ -42,7 +44,7 @@ public abstract class Mob extends Entity {
         return stamina;
     }
 
-    public float getMaxStamina() {
+    public int getMaxStamina() {
         return maxStamina;
     }
 
@@ -52,6 +54,14 @@ public abstract class Mob extends Entity {
 
     public int getProtection() {
         return protection;
+    }
+
+    public boolean getFacingRight() {
+        return facingRight;
+    }
+
+    public boolean getHoldingItem() {
+        return holdingItem;
     }
 
 
@@ -72,7 +82,7 @@ public abstract class Mob extends Entity {
         this.maxHealth = maxHealth;
     }
 
-    public void setStamina(int stamina) {
+    public void setStamina(float stamina) {
         this.stamina = stamina;
     }
 
@@ -86,5 +96,13 @@ public abstract class Mob extends Entity {
 
     public void setProtection(int protection) {
         this.protection = protection;
+    }
+
+    public void setFacingRight(boolean facingRight) {
+        this.facingRight = facingRight;
+    }
+
+    public void setHoldingItem(boolean holdingItem) {
+        this.holdingItem = holdingItem;
     }
 }

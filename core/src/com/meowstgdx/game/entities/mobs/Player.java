@@ -25,15 +25,31 @@ public class Player extends Mob {
         this.stamina = 64;
         this.maxStamina = 64;
 
-        this.setTextureSprite(atlas.createSprite("playerStillRight"));
-        getTextureSprite().setBounds(x, y, this.width, this.height);
-
         if (kills >= 10) {
             setDamage(4);
         }
     }
 
     public void move() {
+
+        if (this.facingRight) {
+            if (this.holdingItem) {
+                this.setTextureSprite(atlas.createSprite("playerHoldingRight"));
+                this.getTextureSprite().setBounds(this.xPos, this.yPos, this.width, this.height);
+            } else {
+                this.setTextureSprite(atlas.createSprite("playerStillRight"));
+                this.getTextureSprite().setBounds(this.xPos, this.yPos, this.width, this.height);
+            }
+        } else {
+            if (this.holdingItem) {
+                this.setTextureSprite(atlas.createSprite("playerHoldingLeft"));
+                this.getTextureSprite().setBounds(this.xPos, this.yPos, this.width, this.height);
+            } else {
+                this.setTextureSprite(atlas.createSprite("playerStillLeft"));
+                this.getTextureSprite().setBounds(this.xPos, this.yPos, this.width, this.height);
+            }
+        }
+
         this.moveSpeed = 300;
         // Double movement speed if SHIFT_LEFT is pressed
         if (this.stamina <= 0) {
@@ -67,13 +83,13 @@ public class Player extends Mob {
     }
 
     private void moveRight(float speed) {
-        this.setTextureSprite(atlas.createSprite("playerStillRight"));
+        this.setFacingRight(true);
         this.xPos += (speed * Gdx.graphics.getDeltaTime());
         this.textureSprite.setBounds(this.xPos, this.yPos, this.width, this.height);
     }
 
     private void moveLeft(float speed) {
-        this.setTextureSprite(atlas.createSprite("playerStillLeft"));
+        this.setFacingRight(false);
         this.xPos -= (speed * Gdx.graphics.getDeltaTime());
         this.textureSprite.setBounds(this.xPos, this.yPos, this.width, this.height);
     }
