@@ -1,6 +1,7 @@
 package com.meowstgdx.game.entities.mobs;
 
 import com.meowstgdx.game.entities.Entity;
+import com.meowstgdx.game.inventory.Inventory;
 
 public abstract class Mob extends Entity {
     protected int moveSpeed;
@@ -13,6 +14,7 @@ public abstract class Mob extends Entity {
     protected int protection;
     protected boolean facingRight;
     protected boolean holdingItem;
+    protected Inventory inventory;
 
     protected Mob(float moveSpeed, float attackSpeed, int health, int maxHealth, int stamina, int maxStamina, int damage, int protection) {
         super(0, 0, 5, 5);
@@ -62,6 +64,10 @@ public abstract class Mob extends Entity {
 
     public boolean getHoldingItem() {
         return holdingItem;
+    }
+
+    public Inventory getInventory() {
+        return inventory;
     }
 
 

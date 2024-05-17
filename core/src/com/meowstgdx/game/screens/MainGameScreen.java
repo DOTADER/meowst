@@ -9,6 +9,10 @@ import com.meowstgdx.game.MeowstGDX;
 import com.meowstgdx.game.entities.blocks.DoorCarpet;
 import com.meowstgdx.game.entities.mobs.Player;
 import com.meowstgdx.game.entities.blocks.Planks;
+import com.meowstgdx.game.inventory.Inventory;
+import com.meowstgdx.game.inventory.Item;
+import com.meowstgdx.game.inventory.items.weapons.Sword;
+import com.meowstgdx.game.materials.ToolMaterial;
 
 public class MainGameScreen implements Screen {
     private MeowstGDX game;
@@ -17,13 +21,15 @@ public class MainGameScreen implements Screen {
 
     public static SpriteBatch spriteBatch;
     public static Player player = new Player(0,0);
+    public static Inventory playerInventory = player.getInventory();
     public static Planks planks = new Planks();
     public static DoorCarpet doorCarpet = new DoorCarpet();
 
     public MainGameScreen(MeowstGDX game, Orthographic orthographic) {
         this.game = game;
         this.orthographic = orthographic;
-        this.hud = new HUD();
+        playerInventory = player.getInventory();
+        this.hud = new HUD(playerInventory);
     }
 
     @Override
@@ -35,7 +41,10 @@ public class MainGameScreen implements Screen {
     public void render(float delta) {
         // Move player
         player.move();
+        hud.updateHotbar();
         hud.updatePlayerStats();
+        hud.handleInput();
+        hud.updateHeldItem();
 
         // Handle zooming
         if (Gdx.input.isKeyPressed(Input.Keys.Z)) {

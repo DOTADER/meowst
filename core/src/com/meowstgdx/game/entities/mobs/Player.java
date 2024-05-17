@@ -3,6 +3,13 @@ package com.meowstgdx.game.entities.mobs;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.meowstgdx.game.MeowstGDX;
+import com.meowstgdx.game.inventory.Inventory;
+import com.meowstgdx.game.inventory.Item;
+import com.meowstgdx.game.inventory.items.weapons.Sword;
+import com.meowstgdx.game.materials.ToolMaterial;
+import com.meowstgdx.game.screens.HUD;
+
+import static com.meowstgdx.game.screens.MainGameScreen.player;
 
 public class Player extends Mob {
 
@@ -13,9 +20,10 @@ public class Player extends Mob {
     private int y = MeowstGDX.SCREEN_HEIGHT / 2 - this.height / 2;
 
     public Player(int caps, int kills) {
-        super(300, 0.5f, 64, 64, 64, 64, 2, 0);
+        super(300, 0.25f, 64, 64, 64, 64, 2, 0);
         this.caps = 0;
         this.kills = 0;
+        this.inventory = new Inventory(9);
         this.setWidth(100);
         this.setHeight(100);
         this.setyPos(y);
@@ -24,6 +32,9 @@ public class Player extends Mob {
         this.maxHealth = 64;
         this.stamina = 64;
         this.maxStamina = 64;
+
+        this.setTextureSprite(atlas.createSprite("playerStillRight"));
+        this.getTextureSprite().setBounds(this.xPos, this.yPos, this.width, this.height);
 
         if (kills >= 10) {
             setDamage(4);
@@ -80,6 +91,10 @@ public class Player extends Mob {
         if (Gdx.input.isKeyPressed(Input.Keys.S)) {
             moveDown(this.moveSpeed);
         }
+
+        if (Gdx.input.isKeyJustPressed(Input.Keys.T)) {
+            this.inventory.addItem(new Sword(ToolMaterial.WOOD));
+        }
     }
 
     private void moveRight(float speed) {
@@ -102,6 +117,10 @@ public class Player extends Mob {
     private void moveDown(float speed) {
         this.yPos -= (speed * Gdx.graphics.getDeltaTime());
         this.textureSprite.setBounds(this.xPos, this.yPos, this.width, this.height);
+    }
+
+    public void addItemToInventory(Item item) {
+        inventory.addItem(item);
     }
 
 
