@@ -2,7 +2,6 @@ package com.meowstgdx.game.inventory;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.meowstgdx.game.Utils;
 
 public class Item {

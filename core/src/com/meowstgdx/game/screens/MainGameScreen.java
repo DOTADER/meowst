@@ -24,6 +24,7 @@ public class MainGameScreen implements Screen {
     public static Inventory playerInventory = player.getInventory();
     public static Planks planks = new Planks();
     public static DoorCarpet doorCarpet = new DoorCarpet();
+    public static Sword sword = new Sword(ToolMaterial.WOOD);
 
     public MainGameScreen(MeowstGDX game, Orthographic orthographic) {
         this.game = game;
@@ -90,6 +91,16 @@ public class MainGameScreen implements Screen {
 
         // Render player
         player.getTextureSprite().draw(spriteBatch);
+
+        if (player.getHoldingItem()) {
+            if (!player.getFacingRight()) {
+                hud.getSelectedItem().getTextureSprite().setBounds(player.getxPos() + 8, player.getyPos() + 26, -50, 50);
+            } else {
+                hud.getSelectedItem().getTextureSprite().setPosition(player.getxPos() + 96, player.getyPos() + 26);
+            }
+            hud.getSelectedItem().getTextureSprite().setRotation(-45);
+            hud.getSelectedItem().getTextureSprite().draw(spriteBatch);
+        }
 
         // End rendering
         spriteBatch.end();

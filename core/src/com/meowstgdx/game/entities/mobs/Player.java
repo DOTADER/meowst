@@ -7,9 +7,6 @@ import com.meowstgdx.game.inventory.Inventory;
 import com.meowstgdx.game.inventory.Item;
 import com.meowstgdx.game.inventory.items.weapons.Sword;
 import com.meowstgdx.game.materials.ToolMaterial;
-import com.meowstgdx.game.screens.HUD;
-
-import static com.meowstgdx.game.screens.MainGameScreen.player;
 
 public class Player extends Mob {
 

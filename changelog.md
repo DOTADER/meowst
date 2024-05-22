@@ -6,8 +6,7 @@
 
 **Improvements**
 -
-- Hotbar now has visible slots that can be accessed by the player, and can contain items that the player has
-- Player is now able to visibly hold items when selected in the hotbar
+- ITEMS ARE PHYSICALLY IN THE PLAYER'S HAND WHEN HELD
 
 ***
 

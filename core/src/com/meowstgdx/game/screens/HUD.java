@@ -61,7 +61,6 @@ public class HUD extends InputAdapter {
         hotbar.setPosition(20, 20);
         hotbar.defaults().pad(5).size(60, 60); // Set default size and padding for slots
         stage.addActor(hotbar);
-        // Add inventory items...
 
         stage.addActor(healthBar);
         stage.addActor(staminaBar);
@@ -93,7 +92,7 @@ public class HUD extends InputAdapter {
             TextureRegionDrawable drawable = new TextureRegionDrawable(new TextureRegion(item.getTextureSprite()));
             Image itemImage = new Image(drawable);
             if (slotIndex == selectedSlot) {
-                itemImage.setColor(Color.YELLOW); // Highlight selected slot with item
+                itemImage.setColor(Color.GOLD); // Highlight selected slot with item
             }
             hotbar.getCells().get(slotIndex).setActor(itemImage);
             slotIndex++;
